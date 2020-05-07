@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   estudiante_facultad.associate = function(models) {
     // associations can be defined here
     estudiante_facultad.belongsToMany(models.Estudiante,{
-      through:'estudiante',
+      through:'Estudiante',
       as : 'EstudianteId',
       foreignKey:EstudianteId
     })

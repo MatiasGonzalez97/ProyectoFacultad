@@ -8,12 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      fecha_creacion: {
-        type: Sequelize.NOW
-      },
-      fecha_modificacion: {
-        type: Sequelize.NOW
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
