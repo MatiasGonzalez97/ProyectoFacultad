@@ -1,0 +1,27 @@
+{
+  "name": "proyectosistemafacultades",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatiasGonzalez97/ProyectoFacultad.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatiasGonzalez97/ProyectoFacultad/issues"
+  },
+  "homepage": "https://github.com/MatiasGonzalez97/ProyectoFacultad#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.7"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "description": ""
+}
