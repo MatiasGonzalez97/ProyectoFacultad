@@ -1,10 +1,12 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const facultad_carrera_materia = sequelize.define('facultad_carrera_materia', {
-    id: DataTypes.UUIDV1
+  const Facultad_carrera_materia = sequelize.define('Facultad_carrera_materia', {
+    idFacultad: DataTypes.INTEGER,
+    idCarrera: DataTypes.INTEGER,
+    idMateria: DataTypes.INTEGER
   }, {});
-  facultad_carrera_materia.associate = function(models) {
+  Facultad_carrera_materia.associate = function(models) {
     // associations can be defined here
   };
-  return facultad_carrera_materia;
+  return Facultad_carrera_materia;
 };
