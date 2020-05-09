@@ -20,13 +20,19 @@ module.exports = {
       edad: {
         type: Sequelize.INTEGER
       },
+      usuario: {
+        type:Sequelize.STRING
+      },
+      password: {
+        type:Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.Date
       }
     });
   },
