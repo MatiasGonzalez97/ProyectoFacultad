@@ -1,11 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const facultad_carrera = sequelize.define('facultad_carrera', {
-    fecha_creacion: DataTypes.NOW,
-    fecha_modificacion: DataTypes.NOW
+  const Facultad_carrera = sequelize.define('Facultad_carrera', {
+    idFacultad: DataTypes.INTEGER,
+    idCarrera: DataTypes.INTEGER
   }, {});
-  facultad_carrera.associate = function(models) {
+  Facultad_carrera.associate = function(models) {
     // associations can be defined here
   };
-  return facultad_carrera;
+  return Facultad_carrera;
 };

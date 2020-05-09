@@ -1,16 +1,14 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
-  const estudiante_facultad = sequelize.define('estudiante_facultad', {
-    EstudianteId: DataTypes.INTEGER,
-    FacultadId: DataTypes.INTEGER
+  const Estudiante_facultad = sequelize.define('Estudiante_facultad', {
+    idEstudiante: DataTypes.INTEGER,
+    idFacultad: DataTypes.INTEGER
   }, {});
-  estudiante_facultad.associate = function(models) {
+  Estudiante_facultad.associate = function(models) {
     // associations can be defined here
-    estudiante_facultad.belongsToMany(models.Estudiante,{
-      through:'Estudiante',
-      as : 'EstudianteId',
-      foreignKey:EstudianteId
-    })
+    Estudiante_facultad.hasMany(models.Estudiante,{foreignKey:'idEstudiante',as : 'estudiante'});
+    Estudiante_facultad.hasMany(models.Facultad,{foreignKey:'idFacultad',as : 'facultad'})
   };
-  return estudiante_facultad;
+  return Estudiante_facultad;
 };
