@@ -13,4 +13,17 @@ async function createrUser(obj){
 
 }
 
-module.exports = {createrUser}
+async function createFacu(obj){
+    
+    try {
+
+        let query = "insert into facultads set ?";
+        const rows = await pool.query(query,obj);
+        return rows;
+
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports = {createrUser,createFacu};
