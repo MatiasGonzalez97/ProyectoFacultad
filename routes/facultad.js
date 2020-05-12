@@ -27,4 +27,20 @@ router.post('/new', async(req,res,next)=>{
 
 });
 
+router.get('/', async(req,res,next)=>{
+
+    try {
+        
+        const result =await userModel.consultFacu();
+
+        res.json({status : true, message : result});
+    } catch (error) {
+        
+        console.log(error);
+        res.json(500).json({status : false, message :"error"});
+    }
+})
+
+
+
 module.exports = router;
