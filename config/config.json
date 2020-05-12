@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "linkinpark123",
-    "database": "proyecto_facultad_foro",
-    "host": "127.0.0.1",
+    "username": "udzlmcanbzpdigsg",
+    "password": "I4rET8Aptq9CFPGRPjy8",
+    "database": "bv8yr1znywge5rsdiedq",
+    "host": "bv8yr1znywge5rsdiedq-mysql.services.clever-cloud.com",
     "dialect": "mysql",
     "operatorsAliases": false
   },
