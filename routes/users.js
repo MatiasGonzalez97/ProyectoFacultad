@@ -15,7 +15,7 @@ router.post('/new', async(req,res,next)=>{
      
     }
 
-    console.log(req.body);
+    // console.log(req.body);
     await userModel.createrUser(object);
 
     res.json({status : true, message : 'Usuario registrado correctamente'})

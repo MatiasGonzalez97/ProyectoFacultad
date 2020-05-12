@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull:false,
         references :{
-          model:'estudiante_facultads',
+          model:'Estudiante_facultads',
           key:'id'
         }
       },
@@ -20,7 +20,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull:false,
         references :{
-          model:'profesors',
+          model:'Profesors',
           key:'id'
         }
       },
@@ -28,7 +28,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull:false,
         references :{
-          model:'facultad_carrera_materia',
+          model:'Facultad_carrera_materia',
           key:'id'
         }
       },
