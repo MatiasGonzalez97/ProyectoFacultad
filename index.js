@@ -6,12 +6,13 @@ const util = require('util');
 var pool = mysql.createConnection({
     host: 'localhost',
     user : 'root',
-    password : 'linkinpark123',
+    password : null,
     database : 'proyecto_facultad_foro'
 });
+console.log(123)
 //Convertir el objeto pool en una peticion sincronica
-//pool.query() gestiona las peticiones (pool referencia conexion / query metodo que permite hacer consultas o transaccion de la base de datos)
-
+// pool.query() gestiona las peticiones (pool referencia conexion / query metodo que permite hacer consultas o transaccion de la base de datos)
+// import('./modelsv2/userModel')
 pool.query = util.promisify(pool.query);//Transforma pool.query en una funcion sincronica y llamarla pool.query (el mismo)
 module.exports = pool; //Exportamos la referencia de la conexion, que sea publica para cualquier ruta
 

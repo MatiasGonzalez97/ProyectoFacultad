@@ -32,7 +32,7 @@ router.post('/new', async(req,res,next)=>{
       
       throw "campo password vacio";
     }
-    console.log(req.body);
+
     await userModel.createrUser(object);
 
     res.json({status : true, message : 'Usuario registrado correctamente'})
