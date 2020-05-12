@@ -29,8 +29,48 @@ async function createrUser(obj){
      }
 
 }
+
+
+async function createFacu(obj){
+    
+    try {
+
+        let query = "insert into facultads set ?";
+        const rows = await pool.query(query,obj);
+        return rows;
+
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+
 // const db = require('../models');
-console.log('asd')
+// console.log('asd')
+
+// const main = async () => {
+//     console.log('adentro')
+//     try{
+//         const usuarios = await Estudiantes.findAll({
+//             include : [
+//                 {
+//                     model : Estudiantes,
+//                     as : 'Facultads',
+//                     attributes : {exclude : ['createdAt','updateAt']},
+//                     through :{attributes:[]}
+//                 }
+//             ]
+//         });
+//         console.log(JSON.stringify(usuarios));
+//         process.exit();
+//     } catch (e) {
+//         console.log(e)
+//     }
+// }
+
+
+
 // const main = async () => {
 //     console.log('adentro')
 //     try{
@@ -51,3 +91,4 @@ console.log('asd')
 //     }
 // }
 module.exports = {createrUser}
+
