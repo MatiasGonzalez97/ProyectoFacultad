@@ -4,10 +4,10 @@ var mysql = require('mysql');
 const util = require('util');
 
 var pool = mysql.createConnection({
-    host: 'localhost',
-    user : 'root',
-    password : null,
-    database : 'proyecto_facultad_foro'
+    host: 'bv8yr1znywge5rsdiedq-mysql.services.clever-cloud.com',
+    user : 'udzlmcanbzpdigsg',
+    password : 'I4rET8Aptq9CFPGRPjy8',
+    database : 'bv8yr1znywge5rsdiedq'
 });
 console.log(123)
 //Convertir el objeto pool en una peticion sincronica
