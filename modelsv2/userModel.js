@@ -1,5 +1,6 @@
 const pool = require('../index');// llamamos la referencia a la conexion
-// const ususario = require('../models/estudiante');
+// const estu = require('../models/estudiante');
+// console.log(estu)// const ususario = require('../models/estudiante');
 async function createrUser(obj){
 
     // try{
