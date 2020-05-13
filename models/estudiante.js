@@ -1,4 +1,6 @@
 'use strict';
+// import * as Estudiante from "sequelize";
+
 module.exports = (sequelize, DataTypes) => {
   const Estudiante = sequelize.define('Estudiante', {
     nombre: DataTypes.STRING,
@@ -13,3 +15,4 @@ module.exports = (sequelize, DataTypes) => {
   };
   return Estudiante;
 };
+

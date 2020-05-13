@@ -1,7 +1,9 @@
 'use strict'
-
+const sequelize = require('sequelize')
 var mysql = require('mysql');
 const util = require('util');
+// const usuarios = require('models');
+
 
 var pool = mysql.createConnection({
     host: 'bv8yr1znywge5rsdiedq-mysql.services.clever-cloud.com',
@@ -10,6 +12,28 @@ var pool = mysql.createConnection({
     database : 'bv8yr1znywge5rsdiedq'
 });
 console.log(123)
+
+var models = require('./models');
+// let respo = models.Estudiante.findAll({raw:true}).then(child => {
+//     console.log(child)
+// });
+let value = [];
+//   console.log(value);//con esto accedo al resultado de la query
+let useraAll =models.Estudiante.findAll({raw:true}).then(function (response) {
+    try{
+        for(let i =0;i<response.length;i++){
+            if(response[i].edad == 12) {
+                value[i] = response[i].edad
+            }else {
+                value[i]='fallo'
+            }
+        }
+        return value
+    }catch (e) {
+        return (e)
+    }
+});//esto funciona obtenemos los valores y los almacenamos 
+useraAll.then(console.log)
 //Convertir el objeto pool en una peticion sincronica
 // pool.query() gestiona las peticiones (pool referencia conexion / query metodo que permite hacer consultas o transaccion de la base de datos)
 // import('./modelsv2/userModel')
