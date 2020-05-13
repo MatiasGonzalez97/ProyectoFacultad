@@ -36,7 +36,7 @@ async function createFacu(obj){
     
     try {
 
-        let query = "insert into facultads set ?";
+        let query = "insert into Facultads set ?";
         const rows = await pool.query(query,obj);
         return rows;
 
@@ -91,5 +91,68 @@ async function createFacu(obj){
 //         console.log(e)
 //     }
 // }
-module.exports = {createrUser}
+
+async function consultFacu(){
+    try {
+        
+
+        let query = "select * from Facultads";
+        const rows = await pool.query(query);
+        return rows;
+    } catch (error) {
+        
+        throw error;
+    }
+}
+async function idEstudiante(id){
+
+    try {
+        
+        let query = "select id from Estudiantes where id = ?";
+        
+        const rows = await pool.query(query,id);
+        if(rows == null || rows ==[] || rows == {}){
+
+            console.log("hola");
+            throw "no existe el estudiante";
+        }
+        return id;
+
+    } catch (error) {
+        console.log("no existe id estudiante")
+        throw error;
+    }
+}
+async function idFacultad (id){
+    try {
+        
+        let query = "select id from Facultads where id = ?";
+        const rows = await pool.query (query, id);
+        console.log(rows);
+        if(rows == null || rows === [] ||rows == {}){
+
+            console.log("chau");
+            throw "no existe el facultad";
+        }
+        return id;
+
+    } catch (error){
+        console.log("no existe id facultad");
+        throw error;
+    }
+}
+async function createEstud_facu(obj){
+
+    try {
+        console.log(obj);
+        let query ="insert into Estudiante_facultads set ?";
+        const rows = await pool.query(query,obj);
+        
+        return rows;
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports = {createrUser,createFacu,consultFacu,idEstudiante,idFacultad,createEstud_facu}
 
