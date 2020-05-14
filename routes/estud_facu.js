@@ -3,21 +3,16 @@ var router = express.Router();
 const userModel = require('../modelsv2/userModel');
 
 router.post('/new', async(req,res,next)=>{
-
+    console.log('dentro')
     try {
-
+        console.log('dentro del route')
         let idEstu = req.body.idEstudiante;
         let idFacu = req.body.idFacultad;
 
         let estu =await userModel.idEstudiante(idEstu);
+        console.log('estudiante ',estu);
         let facu =await userModel.idFacultad(idFacu);
-        console.log("ok");
-
-        if(estu == null || estu ==[] || estu == {}){
-
-            console.log("hola");
-            throw "no existe el estudiante";
-        }
+        console.log("facu :",facu);
 
         const obj ={
             idEstudiante : estu,
@@ -29,7 +24,7 @@ router.post('/new', async(req,res,next)=>{
 
     } catch (error) {
         console.log(error);
-        res.json(500).json({status : false, message :"error"});
+        res.json({status : false, message :error});
     }
 })
 

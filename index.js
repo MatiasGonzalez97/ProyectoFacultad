@@ -19,21 +19,8 @@ var models = require('./models');
 // });
 let value = [];
 //   console.log(value);//con esto accedo al resultado de la query
-let useraAll =models.Estudiante.findAll({raw:true}).then(function (response) {
-    try{
-        for(let i =0;i<response.length;i++){
-            if(response[i].edad == 12) {
-                value[i] = response[i].edad
-            }else {
-                value[i]='fallo'
-            }
-        }
-        return value
-    }catch (e) {
-        return (e)
-    }
-});//esto funciona obtenemos los valores y los almacenamos 
-useraAll.then(console.log)
+// let useraAll =models.Estudiante.findAll({raw:true});//esto funciona obtenemos los valores y los almacenamos
+// useraAll.then(console.log)
 //Convertir el objeto pool en una peticion sincronica
 // pool.query() gestiona las peticiones (pool referencia conexion / query metodo que permite hacer consultas o transaccion de la base de datos)
 // import('./modelsv2/userModel')
