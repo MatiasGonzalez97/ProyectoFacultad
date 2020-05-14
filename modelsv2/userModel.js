@@ -1,43 +1,28 @@
 const pool = require('../index');// llamamos la referencia a la conexion
 // const estu = require('../models/estudiante');
-// console.log(estu)// const ususario = require('../models/estudiante');
-async function createrUser(obj){
+const models = require('../models')
 
-    // try{
-    //     const usuarios = await Estudiante.findAll({
-    //         include : [
-    //             {
-    //                 model : Estudiante,
-    //                 as : 'Facultads',
-    //                 attributes : {exclude : ['createdAt','updateAt']},
-    //                 through :{attributes:[]}
-    //             }
-    //         ]
-    //     });
-    //     console.log(JSON.stringify(usuarios));
-    //     process.exit();
-    // } catch (e) {
-    //     console.log(e)
-    // }
-     try {
+// console.log(estu)// const ususario = require('../models/estudiante');
+async function createrUser(obj) {
+    try {
         //Se usa object notation para el insert de tabla
-       let query ="insert into Estudiantes set ?" // Insertamos valores en la table estudiantes
-         const rows = await pool.query(query,obj);
+        let query = "insert into Estudiantes set ?" // Insertamos valores en la table estudiantes
+        const rows = await pool.query(query, obj);
         return rows; //
-    
+
     } catch (error) {
         throw error;
-     }
+    }
 
 }
 
 
-async function createFacu(obj){
-    
+async function createFacu(obj) {
+
     try {
 
         let query = "insert into Facultads set ?";
-        const rows = await pool.query(query,obj);
+        const rows = await pool.query(query, obj);
         return rows;
 
     } catch (error) {
@@ -45,114 +30,51 @@ async function createFacu(obj){
     }
 }
 
-
-
-// const db = require('../models');
-// console.log('asd')
-
-// const main = async () => {
-//     console.log('adentro')
-//     try{
-//         const usuarios = await Estudiantes.findAll({
-//             include : [
-//                 {
-//                     model : Estudiantes,
-//                     as : 'Facultads',
-//                     attributes : {exclude : ['createdAt','updateAt']},
-//                     through :{attributes:[]}
-//                 }
-//             ]
-//         });
-//         console.log(JSON.stringify(usuarios));
-//         process.exit();
-//     } catch (e) {
-//         console.log(e)
-//     }
-// }
-
-
-
-// const main = async () => {
-//     console.log('adentro')
-//     try{
-//         const usuarios = await Estudiantes.findAll({
-//             include : [
-//                 {
-//                     model : Estudiantes,
-//                     as : 'Facultads',
-//                     attributes : {exclude : ['createdAt','updateAt']},
-//                     through :{attributes:[]}
-//                 }
-//             ]
-//         });
-//         console.log(JSON.stringify(usuarios));
-//         process.exit();
-//     } catch (e) {
-//         console.log(e)
-//     }
-// }
-
-async function consultFacu(){
+async function consultFacu() {
     try {
-        
-
         let query = "select * from Facultads";
         const rows = await pool.query(query);
         return rows;
     } catch (error) {
-        
+
         throw error;
     }
 }
-async function idEstudiante(id){
 
-    try {
-        
-        let query = "select id from Estudiantes where id = ?";
-        
-        const rows = await pool.query(query,id);
-        if(rows == null || rows ==[] || rows == {}){
-
-            console.log("hola");
-            throw "no existe el estudiante";
+async function idEstudiante(id) {
+    let resultQuery = models.Estudiante.findAll({raw: true, where: {id: id}}).then(response => {
+        if (response.length > 0) {
+            return id;
+        } else {
+            throw "no existe el estudiante"
         }
-        return id;
-
-    } catch (error) {
-        console.log("no existe id estudiante")
-        throw error;
-    }
+    });
+    return resultQuery;
 }
-async function idFacultad (id){
-    try {
-        
-        let query = "select id from Facultads where id = ?";
-        const rows = await pool.query (query, id);
-        console.log(rows);
-        if(rows == null || rows === [] ||rows == {}){
 
-            console.log("chau");
-            throw "no existe el facultad";
+async function idFacultad(id) {
+    let resultQuery = models.Facultad.findAll({raw: true, where: {id: id}}).then(response => {
+        if (response.length > 0) {
+            return id;
+        } else {
+            throw "no existe la facultad";
         }
-        return id;
-
-    } catch (error){
-        console.log("no existe id facultad");
-        throw error;
-    }
+    });
+    return resultQuery;
 }
-async function createEstud_facu(obj){
+
+async function createEstud_facu(obj) {
 
     try {
         console.log(obj);
-        let query ="insert into Estudiante_facultads set ?";
-        const rows = await pool.query(query,obj);
-        
+        let query = "insert into Estudiante_facultads set ?";
+        const rows = await pool.query(query, obj);
+
         return rows;
     } catch (error) {
         throw error;
     }
 }
 
-module.exports = {createrUser,createFacu,consultFacu,idEstudiante,idFacultad,createEstud_facu}
+module.exports = {createrUser, createFacu, consultFacu, idEstudiante, idFacultad, createEstud_facu}
 
