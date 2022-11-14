@@ -13,3 +13,12 @@ module.exports = router;
 // router.get('/node',function (req,res) {
 //   Estudiante.findAll().then(notes => res.json(notes))
 // });
+// router.get('/node',function (req,res) {
+//   Estudiante.findAll().then(notes => res.json(notes))
+// });
+// router.get('/node',function (req,res) {
+//   Estudiante.findAll().then(notes => res.json(notes))
+// });
+// router.get('/node',function (req,res) {
+//   Estudiante.findAll().then(notes => res.json(notes))
+// });
