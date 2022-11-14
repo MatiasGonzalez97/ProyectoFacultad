@@ -13,12 +13,7 @@ var pool = mysql.createConnection({
 });
 console.log(123)
 console.log(123)
-console.log(123)
-console.log(123)
-console.log(123)
-console.log(123)
-console.log(123)
-console.log(123)
+
 
 var models = require('./models');
 // let respo = models.Estudiante.findAll({raw:true}).then(child => {

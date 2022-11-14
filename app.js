@@ -19,17 +19,17 @@
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
-// app.use('/facultad',facuRouter);
-// app.use('/estudianteFacu',estudFacu);
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/facultad',facuRouter);
+app.use('/estudianteFacu',estudFacu);
 
-// // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   next(createError(404));
-// });
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
 // // error!
 // // error handler
 // app.use(function(err, req, res, next) {
